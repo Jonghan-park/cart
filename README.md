@@ -6,7 +6,7 @@
 
 # Purpose
 
-Getting used to react hooks (useContext)
+Getting used to react hooks (useState, useEffect, useReducer, useContext)
 
 # Environment
 
