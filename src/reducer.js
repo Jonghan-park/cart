@@ -32,7 +32,7 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "GET_TOTALS") {
-    const { total, amount } = state.cart.reduce(
+    let { total, amount } = state.cart.reduce(
       (cartTotal, cartItem) => {
         const { price, amount } = cartItem;
         const itemTotal = price * amount;
@@ -48,6 +48,13 @@ const reducer = (state, action) => {
     );
     total = parseFloat(total.toFixed(2));
     return { ...state, total, amount };
+  }
+  if (action.type === "LOADING") {
+    return { ...state, loading: true };
+  }
+  if (action.type === "DISPLAY_ITEMS") {
+    console.log(action.payload);
+    return { ...state, cart: action.payload, loading: false };
   }
   return state;
 };
